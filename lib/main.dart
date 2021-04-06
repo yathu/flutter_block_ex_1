@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_block_ex_1/post_cubit.dart';
+import 'package:flutter_block_ex_1/post_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,8 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      home: Text(
-        "aaaa",
+      home: BlocProvider<PostCubit>(
+        create: (context) => PostCubit()..getPost(),
+        child: PostView(),
       ),
     );
   }
